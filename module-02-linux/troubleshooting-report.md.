@@ -1,0 +1,16 @@
+Troubleshooting Report: SSH Service Not Running
+Environment: Kali Linux VM (training lab, not production)
+Symptom
+Logging in with ssh kali@localhost failed with "Connection refused".
+Evidence
+• sudo systemctl status ssh showed the service as inactive.
+• sudo journalctl -u ssh -n 10 showed the service stopping at [time].
+Cause
+The SSH service had been stopped, so nothing was listening on port 22.
+Fix
+Ran sudo systemctl start ssh.
+Verification
+ssh kali@localhost connected successfully.
+If you are planning to add this to your training documentation, let me know:
+• Do you need to include steps to make the SSH service start automatically on boot?
+• Would you like me to format this as a clean code block for a script or a text file?
